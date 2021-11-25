@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PokeTableComponent } from './components/poke-table/poke-table.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'home', component: PokeTableComponent},
+  {path: '', pathMatch:'full', redirectTo:'home'},//vacio
+  {path: '**', pathMatch:'full', redirectTo:'home'}//error
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables.scss";
+
+.container{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+table{
+    min-width: 80%;
+    text-align: center;
+    margin: auto;
+    
+
+}
+
+input{
+    background-color: $white;
+}
+.mat-header-cell{
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*
+.mat-row:nth-child(odd){//representa los elementos cuya posicion numerica es impar
+    background-color:rgb(255, 255, 255);
+}
+
+.mat-row:nth-child(even){//representa los elementos cuya posicion numerica es par
+    background-color: burlywood;
+}*/
+
+.mat-cell:first-letter{
+    text-transform: uppercase;
+}
+
+.mat-row:hover{
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px white;
+    background-color: darkgrey;
+}
+
+::ng-deep.mat-paginator {//para centrar el paginador con la tabla !import
+    width: 80%;
+    margin: auto;
+}
+::ng-deep.mat-form-field-label{
+    background-color: rgb(12, 122, 248);
+    bottom: 1px;
+    margin-top: 7px;
+}
