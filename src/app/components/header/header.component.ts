@@ -18,3 +18,5 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+
+export class ToolbarBasicExample {}

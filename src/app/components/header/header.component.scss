@@ -1,8 +1,12 @@
 @import "../../../assets/styles/variables.scss";
 
 img:hover{
-    cursor: pointer
+    cursor: pointer;
 }
 .mat-toolbar{
     background-color: green;
+    padding: 1px;
+}
+span{
+    text-align: justify;
 }

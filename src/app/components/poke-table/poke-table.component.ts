@@ -10,11 +10,12 @@ import { Pokemon } from 'src/app/models/pokemon';
   templateUrl: './poke-table.component.html',
   styleUrls: ['./poke-table.component.scss']
 })
-export class PokeTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name'];
+export class PokeTableComponent implements OnInit {
+  displayedColumns: string[] = ['position', 'image', 'name'];
   pokemons: Pokemon[] = [];
-  dataSource: MatTableDataSource<Pokemon>;
+  data: any[] = [];
+  dataSource = new MatTableDataSource<any>(this.data);
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -25,31 +26,33 @@ export class PokeTableComponent implements OnInit {
   }
 
   getPokemons(){
-
-    this.pokeService.getAllPokemons().subscribe(
+    let pokemonData;
+    for (let i = 1; i <= 20; i++) {
+      this.pokeService.getPokemons(i).subscribe(
         res => {
-          this.pokemons = res.results;
+          pokemonData = {
+            position: i,
+            image: res.sprites.front_default,
+            name: res.name
+          };
+          /*this.pokemons = res.results;
           console.log(res.results);
           this.dataSource = new MatTableDataSource(this.pokemons);
+          this.dataSource.paginator = this.paginator;*/
+          //this.pokemons=res.results;
+          this.data.push(pokemonData);
+          this.dataSource = new MatTableDataSource<any>(this.data);
           this.dataSource.paginator = this.paginator;
         },
         err => {//en caso de error se muestra
           console.log(err);
         }
       );
-  }
-  
-  applyFilter(event: Event) {//metodo extraido de la api para los paginadores
-    const filterValue = (event.target as HTMLInputElement).value;
-    //this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    /*if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }*/
+    }
   }
 
   getRow(row){
-    this.router.navigateByUrl(`pokeAbilities/${row.position}`);
+    this.router.navigateByUrl(`pokeAbilities/${row.name}`);
   }
 
 }

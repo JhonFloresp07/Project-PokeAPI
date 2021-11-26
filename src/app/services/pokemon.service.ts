@@ -13,8 +13,8 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
   
-  getPokemons(index):Observable<Pokemon>{
-    return this.http.get<Pokemon>(`${this.baseUrl}/pokemon/${index}`);
+  getPokemons(index){
+    return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
   }
 
   getAllPokemons():Observable<any>{

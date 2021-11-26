@@ -3,47 +3,39 @@
 .container{
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 table{
-    min-width: 80%;
+    min-width: 70%;
     text-align: center;
     margin: auto;
-    
-
-}
-
-input{
-    background-color: $white;
+    background-color: rgb(165, 5, 5);
+    padding: 20px;
+    border-radius: 10px;
 }
 .mat-header-cell{
-    color: $white;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
 }
 
-/*
-.mat-row:nth-child(odd){//representa los elementos cuya posicion numerica es impar
-    background-color:rgb(255, 255, 255);
-}
 
-.mat-row:nth-child(even){//representa los elementos cuya posicion numerica es par
-    background-color: burlywood;
-}*/
-
-.mat-cell:first-letter{
+.mat-cell{
+    font-size: 20px;
+    &:first-letter{
     text-transform: uppercase;
+    }
 }
-
-.mat-row:hover{
-    cursor: pointer;
-    box-shadow: inset 0 0 0 1px white;
-    background-color: darkgrey;
+.mat-row{
+    &:hover{
+        cursor: pointer;
+        box-shadow: inset 0 0 0 1px $black;
+        background-color: $black;
+    }
 }
 
 ::ng-deep.mat-paginator {//para centrar el paginador con la tabla !import
-    width: 80%;
+    width: 70%;
     margin: auto;
 }
 ::ng-deep.mat-form-field-label{
